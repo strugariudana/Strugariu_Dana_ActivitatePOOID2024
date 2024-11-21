@@ -63,6 +63,28 @@ public:
 
         return out;
     }
+
+    int getCapacitate() {
+        return capacitate;
+    }
+
+    void setCapacitate(int capacitate) {
+        if (capacitate >= 0) {
+            this->capacitate = capacitate;
+        }
+    }
+
+    const char* getProducator() {
+        return producator;
+    }
+
+    void setProducator(const char* producator) {
+        delete[] this->producator;
+        if (producator) {
+            this->producator = new char[strlen(producator) + 1];
+            strcpy(this->producator, producator);
+        }
+    }
 };
 
 int Autobuz::nrAutobuze = 0;
@@ -82,6 +104,14 @@ int main()
     Autobuz a3 = a2;
     cout << "Constructor de copiere" << endl;
     cout << a3 << endl;
+
+
+    cout << "Metode accesor" << endl;
+    a3.setCapacitate(78);
+    cout << "a3.getCapacitate(): " << a3.getCapacitate() << endl;
+    a3.setProducator("MAN");
+    cout << "a3.getProducator(): " << a3.getProducator() << endl;
+
 
 
     return 0;
