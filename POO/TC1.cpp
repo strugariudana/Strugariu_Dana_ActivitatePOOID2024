@@ -85,6 +85,31 @@ public:
             strcpy(this->producator, producator);
         }
     }
+
+    Autobuz& operator=(const Autobuz& a) {
+        if (this != &a) {
+            capacitate = a.capacitate;
+            nrPersoaneImbarcate = a.nrPersoaneImbarcate;
+            delete[] producator;
+            if (a.producator) {
+                this->producator = new char[strlen(a.producator) + 1];
+                strcpy(this->producator, a.producator);
+            }
+        }
+        return *this;
+    }
+
+    int getNumarLocuriLibere() {
+        return capacitate - nrPersoaneImbarcate;
+    }
+
+    operator int() {
+        return nrPersoaneImbarcate;
+    }
+
+    bool operator>(const Autobuz& a) {
+        return capacitate > a.capacitate;
+    }
 };
 
 int Autobuz::nrAutobuze = 0;
@@ -111,7 +136,29 @@ int main()
     cout << "a3.getCapacitate(): " << a3.getCapacitate() << endl;
     a3.setProducator("MAN");
     cout << "a3.getProducator(): " << a3.getProducator() << endl;
+    cout << endl;
 
+    a1 = a3;
+    cout << "Operatorul =" << endl;
+    cout << a1 << endl;
+
+
+    cout << "Metoda getNumarLocuriLibere()" << endl;
+    cout << "a3.getNumarLocuriLibere(): " << a3.getNumarLocuriLibere() << endl;
+    cout << endl;
+
+    cout << "Operator int()" << endl;
+    cout << "int(a3): " << int(a3) << endl;
+
+
+    cout << endl << "Operator > " << endl;
+    if (a3 > a2) {
+        cout << "a3 > a2";
+    }
+    else {
+        cout << "a2 > a3";
+    }
+    cout << endl;
 
 
     return 0;
