@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Autobuz
+{
+    static int nrAutobuze;
+    const int idAutobuz;
+    int capacitate;
+    int nrPersoaneImbarcate
+    char* producator;
+
+public:
+
+    Autobuz() 
+    {
+        this->capacitate = 0;
+        this->nrPersoaneImbarcate = 0;
+        this->producator = new char[strlen("") + 1];
+        strcpy(this->producator, "");
+    }
+};
+
+
+int main()
+{
+    
+
+    return 0;
+}
